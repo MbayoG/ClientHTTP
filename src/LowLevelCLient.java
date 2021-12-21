@@ -28,20 +28,22 @@ public class LowLevelCLient {
             os.flush();
 
             //Reception de la réponse
+            StringBuilder result = new StringBuilder();
             String response;
             while((response = is.readLine()) != null){
                 System.out.println(response);
 
                 //fait quelque-chose en fonction d'un paramètre
-                if(response.split(":")[0].equals("Vary")){
+                if(response.split(":")[0].equals("Content-Type")){
                     System.out.println("YOdleHiHo!");
+                    result.append(response.split(":")[1]);
                 }
                 if(response.split(":").length > 1 && response.split(":")[0].charAt(0) == 'C'){
                     System.out.println("HEEEEEEEHO!");
                 }
             }
 
-
+            System.out.println(result.toString());
 
             //fermetures des stream/socket
             os.close();
