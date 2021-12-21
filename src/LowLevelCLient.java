@@ -22,6 +22,7 @@ public class LowLevelCLient {
             StringBuilder request = new StringBuilder("GET /clock.php HTTP/1.0\r\n");
             request.append("Host: "+ hostname +"\r\n");
             request.append("Accept: text/plain, text/html, application/json\r\n");
+            request.append("Accept-Charset: utf-8\r\n");
             request.append("\r\n");
 
             os.println(request.toString());
