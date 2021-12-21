@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 public class LowLevelCLient {
     public static void main(String[] args) throws IOException {
@@ -14,7 +15,7 @@ public class LowLevelCLient {
         try {
             clientSocket = new Socket(hostname, port);
 
-            is = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            is = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(), StandardCharsets.UTF_8));
             os = new PrintWriter(clientSocket.getOutputStream());
 
             //Construction et envoi d'une requête GET
